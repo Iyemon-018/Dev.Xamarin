@@ -21,5 +21,13 @@ namespace ZXing.Net.Example.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+#pragma warning disable CS0618 // 型またはメンバーが古い形式です
+            Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+#pragma warning restore CS0618 // 型またはメンバーが古い形式です
+        }
     }
 }
